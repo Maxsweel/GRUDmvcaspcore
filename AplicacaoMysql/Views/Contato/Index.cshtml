@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AplicacaoMysql.Models.Contato>
+
+@{
+    ViewData["Title"] = "Lista Contatos";
+ }
+
+<h1>Lista de Contatos</h1>
+
+
+<p>
+    <a asp-action="Create">Novo Contato</a>
+</p>
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Tel)</th>
+            <th>@Html.DisplayNameFor(model => model.Msg)</th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tel)</td>
+            <td>@Html.DisplayFor(modelOtem => item.Msg)</td>
+
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhe</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>

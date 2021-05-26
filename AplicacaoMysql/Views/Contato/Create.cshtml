@@ -1,0 +1,57 @@
+﻿@model AplicacaoMysql.Models.Contato
+
+@{ 
+    ViewData["Title"] = "Inserir";
+}
+
+<h1>Novo Contato</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="CriarContato">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Nome" class="custom-control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="custom-control-label"></label>
+                <input type="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tel" class="custom-control-label"></label>
+                <input type="tel" asp-for="Tel" class="form-control" />
+                <span asp-validation-for="Tel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                Mensagem
+                <textarea asp-for="Msg" class="form-control"></textarea>
+                <span asp-validation-for="Msg" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="CriarContato" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para Lista</a>
+</div>
+
+@section Scripts 
+{
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
